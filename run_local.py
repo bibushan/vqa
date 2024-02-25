@@ -6,6 +6,7 @@ from PIL import Image
 from torchvision import transforms
 from models import VqaModel
 from data_loader import VQAImageProcessor
+from utils import text_helper
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
