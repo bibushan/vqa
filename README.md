@@ -21,17 +21,3 @@ $ python build_vqa_inputs.py --input_dir='../datasets' --output_dir='../datasets
 $ cd ..
 $ python train.py
 ```
-
-## Results
-
-- Comparison Result
-
-| Model | Metric | Dataset | Accuracy | Source |
-| --- | --- | --- | --- | --- |
-| Paper Model | Open-Ended | VQA v2 | 54.08 | [VQA Challenge](https://visualqa.org/roe.html) |
-| My Model | Multiple Choice | VQA v2 | **54.72** | |
-
-
-- Loss and Accuracy on VQA datasets v2
-
-![train1](./png/train.png)
