@@ -2,7 +2,7 @@
 #### 1. Download and unzip the dataset from official url of VQA: https://visualqa.org/download.html.
 
 ```bash
-$ cd basic_vqa/utils
+$ cd vqa/utils
 $ chmod +x download_and_unzip_datasets.csh
 $ ./download_and_unzip_datasets.csh
 ```
