@@ -1,0 +1,19 @@
+run_local.py
+ python3 run_local.py --model_path './models/model-epoch-03.ckpt' --image_path './datasets/Images/train2014/COCO_train2014_000000000025.jpg' --question 'what is the name of this animal??'
+
+my_prediction.py
+
+
+
+What is behind the bench ?
+
+Answer 1: trees
+Answer 2: grass
+Answer 3: forest
+Answer 4: brush
+Answer 5: leafs
+Answer 6: trees
+Answer 7: plants
+Answer 8: grass
+Answer 9: trees
+Answer 10: brush

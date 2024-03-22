@@ -23,45 +23,6 @@ def load_image(image_path, transform):
     return image.to(device)
 
 def main(args):
-    # resize the input image
-    # Path to the input image
-    image_path =  args.image_path ##r"E:\Research\vqa-ssm\datasets\Images\train2014\COCO_train2014_000000000025.jpg"
-
-    # Desired size after resizing
-    image_size = (224, 224)
-
-    print("Image path:", image_path)
-
-    # Open the image
-    image = Image.open(image_path)
-
-    # Resize the image
-    resized_image = resize_image(image, image_size)
-
-    # Save or use the resized image as needed
-    resized_image.save("resized_image.jpg")
-
-
-    # Make vocabularies for questions and answers
-#    make_vocab_questions(args.questions_dir)
- #   make_vocab_answers(args.annotations_dir, args.n_answers)
-
-    # Build VQA inputs
-#    vqa_processing(args.resized_images_dir, args.annotations_file, args.questions_file, args.vocab_answers_file, 'test-dev2015')
-
-
-    data_loader = get_loader(
-        input_dir=args.input_dir,
-        input_vqa_train='train.npy',
-        input_vqa_valid='valid.npy',
-        max_qst_length=args.max_qst_length,
-        max_num_ans=args.max_num_ans,
-        batch_size=args.batch_size,
-        num_workers=args.num_workers)
-
-    qst_vocab_size = data_loader['train'].dataset.qst_vocab.vocab_size
-    ans_vocab_size = data_loader['train'].dataset.ans_vocab.vocab_size
-    ans_unk_idx = data_loader['train'].dataset.ans_vocab.unk2idx
 
     # Load the trained model
     model = VqaModel(embed_size=args.embed_size,
@@ -77,10 +38,8 @@ def main(args):
     print("Pre load_state_dict")
     
     
-    for param_tensor in model.state_dict():
-        print(param_tensor, "\t", model.state_dict()[param_tensor].size())
+    model.load_state_dict(torch.load("./models/model-epoch-03.ckpt", map_location=torch.device(device))['state_dict'])
 
-    model.load_state_dict(torch.load(args.model_path, map_location=device))
     model.to(device)
     model.eval()
 

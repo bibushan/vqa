@@ -40,7 +40,6 @@ def loadTxtFile(file_path, delimiter='\n'):
 	return arr.split(delimiter)
 
 def readImage(path):
-	print("Print from readImage before return")
 	return cv2.cvtColor(cv2.imread(path), cv2.COLOR_BGR2RGB)
 
 def showImage(img):
@@ -148,11 +147,11 @@ if __name__ == "__main__":
 	model.load_state_dict(torch.load("./models/model-epoch-03.ckpt", map_location=torch.device(device))['state_dict'])
 
 	
-	print("Printing model architecture:\n", model.eval())
+	# print("Printing model architecture:\n", model.eval())
 
 	# ### Read / Get input ###
 	img = readImage("./datasets/Images/test2015/COCO_test2015_000000000019.jpg")
-	print("Print after readImage")
+	# img = readImage("./datasets/Images/bag.jpeg")
 	#qst_str = input("Enter a question: ")
-	qst_str = "what is the animal in the image ?"
+	qst_str = "where is the animal in the image ?"
 	getPrediction(img, qst_str)
